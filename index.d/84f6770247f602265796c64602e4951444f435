@@ -1,0 +1,8 @@
+Download dm850c.zip and dm850dos.zip
+from http://www.digitalmars.com/download/freecompiler.html .
+
+Extract them.
+
+8<
+make -f Makefile.sc
+>8

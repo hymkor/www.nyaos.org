@@ -1,0 +1,326 @@
+!!! Table-like objects
+
+* ``nyaos.alias``
+* ``nyaos.option``
+* ``nyaos.suffix``
+* ``nyaos.folder``
+* ``nyaos.argv`` 
+
+``nyaos.``''XXXXX'' is the interface of ''XXXXX'.
+
+8<
+lua_e "
+    nyaos.alias['cp'] = 'cmd /c copy'
+    print('cp='..nyaos.alias['cp'])
+    for key,val in pairs(nyaos.alias) do
+        print(key..'='..val)
+    end
+"
+>8
+
+!!! History/dirstack object
+
+* ``nyaos.history``
+** which is the interface for ``history``
+* ``nyaos.dirstack``
+** whici is the interface for ``pushd/popd/dirs``
+
+8<
+lua_e "
+  local h=nyaos.history
+  for i=1,#h do
+    print(i,h[i])
+  end
+"
+>8
+
+8<
+lua_e "for i,e in ipairs(nyaos.history) do print(i,e) end"
+>8
+
+!! add string to history
+
+8<
+nyaos.history:add('hogehoge')
+>8
+
+!! drop string from history
+
+8<
+nyaos.history:drop()
+>8
+
+!!! Calling Lua functions as an internal command in nyaos
+
+!! nyaos.command.xxxxx
+
+When called with
+
+8<
+    COMMANDNAME X Y Z > foo.txt
+>8
+
+Lua function is called like:
+
+8<
+    nyaos.command.COMMANDNAME('X','Y','Z')
+>8
+
+and redirected to 'foo.txt'.
+
+!! nyaos.command2.yyyyyyyy
+
+When called with
+
+8<
+    COMMANDNAME X Y Z > foo.txt
+>8
+
+Lua function is called like:
+8<
+    nyaos.command2.COMMANDNAME('X Y Z > foo.txt')
+>8
+
+Lua's return value of function is translated as below
+
+* Number => not changed
+* false => 1
+* true,nil,others => 0
+
+
+!!! Command-line filter
+
+The function nyaos.filter can rewrite the text user input on command-line.
+
+Example in _nya:
+
+8<
+lua_e "
+    function nyaos.filter(cmdline)
+        return cmdline:gsub('%%(%b())',function(m)
+            return loadstring('return '..m)()
+        end)
+    end
+"
+>8
+
+you can do:
+
+8<
+[c:nyaos3k]
+$ echo %(1+2+3)
+6
+>8
+
+nyaos.filter2 is like nyaos.filter but its parameter is the commandline
+after alias and suffix are extracted.
+
+
+!!! Keyboard-hook
+
+NYAOS calls the function ``nyaos.keyhook`` everytime user types key.
+
+Example in _nya:
+
+8<
+lua_e "
+    function nyaos.keyhook(t)
+        if t.key == nyaos.key.ESCAPE and t.text == '' then
+            return os.getenv('EDITOR') or 'notepad',true
+        end
+        return nil
+    end
+"
+>8
+
+When command-line is empty ,
+your favorite editor raise with ESCAPE-Key typing.
+
+The function nyaos.keyhook's spec is below
+
+* Arguments:
+** ``''t''.key`` : keycode
+** ``''t''.text`` : commandline-text
+** ``''t''.pos`` : cursor's position on text
+* return value'''s''':
+** ``nil`` : no effort. nyaos nterprets only user-typed-key.
+** ``''string''`` : insert it into cursor's position
+** ``''integer''`` : interpret it as key-code
+** ``true`` : same as ENTER
+** ``false`` : same as Ctrl-C
+
+!! Key-code constants
+
+Please check with the below code:
+
+8<
+lua_e "
+    for key,val in pairs(nyaos.key) do 
+        print('nyaos.key.'..key..'='..val)
+    end
+"
+>8
+
+!! Hook at exit
+
+Defined nyaos.goodbye, NYAOS calls it at exit.
+
+for instance:
+
+8<
+    lua_e "nyaos.goodbye = function() print 'GOOD-BYE' end"
+>8
+
+
+!!! Completion Hook
+
+8<
+    function nyaos.complete(BASESTRING,POSITION,MISC)
+        :
+        return LIST
+    end
+>8
+
+* BASESTRING
+** The string to be completed when TAB is typed.
+* POSITION
+** The postion of BASESTRING on the command-line.
+   Then it is 0 , completion should include command names.
+* MISC
+** MISC.text
+*** All the command-line string
+** MISC.cursor
+*** The postion of cursor.
+* LIST
+** return-value. 
+*** LIST[n][1] or LIST[n]
+**** string for completion
+*** LIST[n][2]
+**** string for listing
+
+for instance:
+
+8<
+    lua_e "
+        function nyaos.complete(basestring,n)
+            local list = nyaos.default_complete(basestring,n)
+            table.insert( list , '127.0.0.1' )
+            table.insert( list , 'localhost' ) 
+            return list
+        end
+    "
+>8
+
+nyaos.default_complete is built-in function which does NYAOS's 
+default completion.
+
+nyaos.default_complete always returns
+
+8<
+    {
+        { "FULLPATH-1" , "FILENAME-1 without DIRECTORY" } ,
+        { "FULLPATH-2" , "FILENAME-2 without DIRECTORY" } ,
+        { "FULLPATH-3" , "FILENAME-3 without DIRECTORY" } ,
+        { "FULLPATH-4" , "FILENAME-4 without DIRECTORY" } ,
+    }
+>8
+
+nyaos.default_complete does not use the third argument.
+
+!!! Tools
+
+!! nyaos.getkey() - get keycode typed
+
+8<
+    lua_e "print(nyaos.getkey())"
+>8
+
+!! nyaos.goodbye() - hook at exit
+
+8<
+    lua_e "nyaos.goodbye = function() print 'SAYONARA' end"
+>8
+
+!! nyaos.rcfname - current runnning codefilename
+
+In _nya :
+
+8<
+    print('Loading ' .. nyaos.rcfname)
+>8
+
+
+!! Execute NYAOS-command in Lua-code
+
+8<
+lua_e "nyaos.exec('ls -l')"
+>8
+
+!! Test whether the file exists or not.
+
+8<
+lua_e "print( nyaos.access('_nya',0) )"
+>8
+
+!! Quote NYAOS-command output
+
+8<
+    lua_e "
+        local quote=nyaos.eval('ls -1')
+        for fn in string.gmatch(quote,'[^\n]+') do 
+            print(fn) 
+        end
+    "
+>8
+
+!! Test file existance.
+
+    lua_e "print( nyaos.access('_nya',0) )"
+
+!! Reading directory
+
+8<
+lua_e "
+  for filename in nyaos.dir('c:/') do
+    print(filename)
+  end
+"
+>8
+
+!! Change the current working directory
+
+8<
+lua_e "
+  nyaos.chdir('..')
+"
+>8
+
+!! Bit operation.
+
+8<
+lua_e "
+   print(nyaos.bitand(1,2))
+   print(nyaos.bitor(1,2))
+   print(nyaos.bitxor(1,2))
+   print(nyaos.rshift(8,1))
+   print(nyaos.lshift(8,1))
+"
+>8
+
+!!! option as the front end of Lua interpretor.
+
+!! one-liner Lua code
+
+8<
+nyaos -E "lua-code...." arg1 arg2 arg3...
+>8
+
+Interactive shell does not start.
+
+!! execute lua-script
+
+8<
+nyaos -F lua-script-file arg1 arg2 arg3...
+>8
+
+Interactive shell does not start.

@@ -1,0 +1,16 @@
+* '''https://gist.github.com/DeaR/4554687{Porting z.sh for NYAOS 3.x}'''
+
+* http://nyaos.org/d/index.cgi?p=%282012.02.06%29#p1{'''[Python][NYAOS][Lua] NYAOS で Python 3/2 自動判別'''}
+* http://d.hatena.ne.jp/wantora/20120106/1325835542{'''NYAOSの更新をするコマンドを修正しました - メモ@wantora'''}
+* http://anengineer.tumblr.com/post/13196592706/nyaos-bash-lua{'''NYAOSのプロンプトをBash風にするLUAスクリプト'''}
+* http://d.hatena.ne.jp/wantora/20101125/1290670022{NYAOSをアップデートするスクリプトを作った - メモ@wantora}(旧版)
+* http://d.hatena.ne.jp/wantora/20101027/1288171126{'''NYAOSでshebang - メモ@wantora'''}
+* http://d.hatena.ne.jp/wantora/20100612/1276302763{'''NYAOS 3000でいろんなコマンドのサブコマンドを補完する - メモ@wantora'''}
+* http://d.hatena.ne.jp/wantora/20100528/1275032435{NYAOS 3000でMercurialのサブコマンドを補完する - メモ@wantora}
+* http://d.hatena.ne.jp/wantora/20100525/1274781306{NYAOS 3000でバッチファイルとかの拡張子を省略できるようにする - メモ@wantora} → NYAOS 2.98 にて本体側にて対応
+* http://d.hatena.ne.jp/thinca/20100522/1274504108{続・NYAOS 3000 で bat ファイルとかを拡張子なしで実行する - 永遠に未完成} → NYAOS 2.98 にて本体側にて対応
+* http://d.hatena.ne.jp/thinca/20100521/1274377972{NYAOS 3000 で bat ファイルとかを拡張子なしで実行する - 永遠に未完成} → NYAOS 2.98 にて本体側にて対応
+* http://nyaos.org/d/index.cgi?p=%282010.11.12%29#p1{MHI 3.1 - $ NYAOS でキーボードマクロ}
+* http://nyaos.org/d/index.cgi?p=%282010.07.22%29#p1{MHI 3.1 - $ [NYAOS] CMD.EXE のバッチファイルを source する}
+* http://nyaos.org/d/index.cgi?p=%282010.07.18%29#p1{MHI 3.1 - $ [NYAOS] zsh風のauto_cd の作り方}
+* http://nyaos.org/d/index.cgi?p=%282010.07.10%29#p3{MHI 3.1 - $ [NYAOS] typeコマンド/catコマンド}

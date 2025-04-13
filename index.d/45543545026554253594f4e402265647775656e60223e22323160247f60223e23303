@@ -1,0 +1,49 @@
+These TEST VERSION is out of date.
+To get the newest version, go to [[DOWNLOAD]].
+
+!!! Download
+
+||| Version | Source | Windows-binary((fn built with mingw)) 
+ | OS/2-binary | DOS-binary
+|| 2009.10.25 | <<{nya-20091025.zip} | <<{nyacus-20091025.zip}
+    | <<{nyaos2-20091025.zip} | <<{nyados-20091025.zip}
+|| 2009.10.18 | <<{nya-20091018.zip} | <<{nyacus-20091018.zip} 
+    | <<{nyaos2-20091018.zip} | <<{nyados-20091018.zip}
+|| 2009.04.18 | <<{nya-20090418.zip} | <<{nyacus-20090418.zip} | - | -
+|| 2009.03.04 | <<{nya-20090304.zip} | <<{nyacus-20090304.zip} | - | -
+|| 2009.02.22 | <<{nya-20090222.zip} | <<{nyacus-20090222.zip} | - | -
+
+!!! To build with mingw from source.
+
+* On Windows2000, do ```ln -s (or cp) /usr/lib/mingw/crt2.o .```
+
+!!! rev.2009.10.25
+
+* unify Makefile.
+* change document format to m4.
+* update documents.
+
+!!! rev.2009.10.18
+
+* fix: did not clear all charactors after cursor at typing CTRL-W
+* fix: not flushed stdout before backquoting
+* fix: escape sequence did not work after run '' echo `pwd` ''
+
+!! (2009.10.24)
+
+* Resupport OS/2 Warp and DOS version.
+
+!!! rev.2009.04.18
+
+* fix:``&&`` and ``||`` did not work.
+
+!!! rev.2009.03.04
+
+* fix:build-in ls (mingw-version) did not show correct timestamp and filesize.
+
+!!! rev.2009.02.22
+
+* Auto correct width at line-editing for the terminal software ckw.
+  Thanks to [hideden|http://d.hatena.ne.jp/hideden/20071125/1196015990]
+* Support mingw as one of compile platform.
+  Thanks to [lukewarm|http://d.hatena.ne.jp/lukewarm/20090221#p1]

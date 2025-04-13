@@ -1,0 +1,138 @@
+!!! What is NYAOS 3000
+
+<<{luacat.png} 
+'''NYAOS 3000''' is the code name of the
+'''Nihongo Yet Another Open Shell 3.xx''',
+which is the next generation of NYAOS 2.xx Series.
+
+* It is powered by Lua. 
+** Build-in command: '```lua_e "LUA-CODE"```' which extends NYAOS.
+** About detail, see ">>{What powered by Lua}").
+* Support Windows XP SP3 or later, and OS/2 Warp 4.5
+* It does not require CMD.EXE. It runs standalone.
+
+!!! Caution
+
+* The rule of loading '_nya' changed.
+  NYAOS.EXE comes to load all of _nya on the directories
+  where nyaos.exe exists ,
+  which %HOME% or %USERPROFILE% points, and on the current directory.
+* '''On OS/2 Warp, emx.dll (0.9 or later) are required.'''
+
+((include DOWNLOAD))
+
+!!! History
+
+* 3.3.8_2 (2013/07/24)
+** Fixed: Could not quit incremental search by CTRL-R with CTRL-G
+** Fixed: Considered ``{`` without the name and ``}`` as the function 
+   block beginning.
+** Fixed: Could not chdir to the directory pointed with UNC-Path
+      (Thanks to @nocd5)
+
+* 3.3.8_1 (2013/05/06)
+** ``ls``'s new option:``-_`` : print files starting with ``_``
+** Fixed: Cound not assign functions to keys: ALT_0~9 ALT_A~Z.
+
+* 3.3.8_0 (2013/05/03)
+** Fixed: Could not assign functions with the `bindkey' command to 
+    some keys for example CTRL_LEFT,CTRL_RIGTH and so on.
+** Fixed: Once Lua-function assigned to nyaos.keyhook returns nil,
+    no Lua-function assigned key did not work.
+** New Lua function: nyaos.currentdir()
+** The width for the file size on `ls -l' is automatically changed. (*)
+** ls's new option: -h,--si (*)
+((br))(* Thanks to Mr.Akinori Hattori's codes!)
+* 3.3.7_1 (2013/04/23)
+** Fixed: The Window's title text was not updated at changing drive with ``X:`` (on Windows Only)
+* 3.3.7_0 (2013/03/31)
+** Since ```COMObject:Item("key")=val``` is not available,
+      provide ```COMObject:__put__("Item","key",val)```
+** Be able to enumerate the items in collection of COM-object
+      ((br))(ex: ```for e in COMObject:__iter__() do ... end ```)
+** Be able to load COM's constraints with ```COMObject.__const__```
+      ((br))(same as ``nyaos.const_load`` which was removed from documents)
+* 3.3.6_1 (2013/03/01)
+** Fixed: "ls -l | more" did not print with the long format.
+** Fixed: Crashed at executing 'con' or 'prn'
+* 3.3.6_0 (2013/02/24)
+** Support DBCS String literal on builtin-Lua.
+** Add nyaos.sub/len : DBCS version of Lua's string.sub/len
+** Remove nyaos.splitknj function
+** Move some functions from _nya to _nya.d\*
+** [OS/2] Now emx.dll are required again because the problem are 
+   found that PM applications can not be called.
+* 3.3.5_1 (2013/02/18)
+** Fix: Japanese Charactors could not be typed on Windows8.
+* 3.3.5_0 (2013/02/16)
+** The ^ is now regarded as the escape charactor like CMD.EXE.
+** `for' and `assoc' are defined on standard _nya.
+** Removed the fixed error message when CreateProcess has failed 
+      and the commandline is longer than 111 charactors.
+** Fix: GOTO did not work.
+** Fix: Only the functions with names in the lower case can be called.
+** Cut messages for `command(s) | nyaos.exe'
+
+* 3.3.4_3 (2013/02/09)
+** Fix the problen that current directory name became SHORTFILE 
+      NAME(8.3) when do "cd SHORTCUT.lnk".(WINDOWS)
+** Fix the bug that it does not work to complete a filename of 
+      shortcut after "cd ".(WINDOWS)
+** Fix the bug that on filename's completing, Filename's case 
+      is not corrected when length of common characters of 
+      complition-list are same as typed characters.
+** Added the new lua command `lnk' to make shortcut to the 
+      default _nya.(WINDOWS)
+* 3.3.4_2 (2013/02/02)
+** Bugfix: crashes at calling COM.
+** Able to see the version information in the exe-file's property.
+* 3.3.4_1 (2013/01/19)
+** Bugfix: Japanese letters are not printed correctly on builtin-ls 
+   and prompt in some Windows-7 environments.
+* 3.3.4_0 (2012/10/14)
+** Can change Window's title (on Windows only) (merge @nocd5's code)
+** build-in cls command.
+** If ~/_nya and ./_nya are the same file, not load them twice.
+** Remove warnings at compiling with g++ 4.7.0
+* 3.3.3_1 (2012/06/18)
+**Fix: freeze at executing the script with ```nyaos -f FILENAME```
+      and FILENAME's code is ```lua_e "print(io.read())"```
+      (on Windows only)
+* 3.3.3_0 (2012/06/03)
+** Complete only directory when the command is CD or PUSHD.
+** Lua: nyaos.const_load() which imports constants from COM
+** Fix problem: could not execute a batchfile when both the 
+      batchfile's name and argument are enclosed in double-quotation.
+      (for example: "foo.bat" "arg1")
+* 3.3.2_0 (2012/04/30)
+** Can call COM-Object from built-in Lua
+      (added function: nyaos.create_object , nyaos.get_active_object)
+** You can write `nyaos foo.lua' as `nyaos -f foo.lua'.
+* 3.3.1_0 (2012/03/02)
+** Enabled replacing by "suffix" command against result replaced by "alias" command.
+** `set foo:="ahaha "" ihihi"' make $foo to `ahaha " ihihi'
+      (`set foo="ahaha "" ihihi"` remains to make $foo to `"ahaha "" ihihi"')
+** On `set foo= ; set foo+"a""b"', $foo was `ab'. But now it is `a"b'.
+** Aginst not existing command FOO, two error message ware printed as:
+      `FOO: No such file or directory' and `FOO: Bad file descriptor'.
+      Now, the latter are removed.
+** add Lua-functin: nyaos.putenv()
+* 3.3.0_3 (2012/02/11)
+** Fix problem: regarded spaces in %HOME% or %USERPROFILE% as 
+   parameter's separetor at calling program with tilde-charactor. 
+* 3.3.0_2 (2012/01/30)
+** Suppress the error when the file pointed option savehist is not exists.
+** It can save history and call nyaos.good.* even if terminal window is closed with button.
+** Fix the problem to insert unnecessary double quotation on filename completion when the directory name has the charactor whose second byte is included option-uncompletechar.
+** modify _nya to call mklink via cmd.exe with alias.
+* 3.3.0_1 (2012/01/07)
+** support bash-like syntax such as `alias foo=bar' on the commands:
+      alias, suffix, option.
+** fix: nyaos.eval does not work correctly when arguments' command output
+      over 32767 chars.
+*3.3.0_0 (2012/01/01)
+** change Lua-engine version 5.1.4 to 5.2
+** remove nyaos's own mechanism of pairs and ipairs.
+** remove nyaos.bitand, bitor, bitxor, rshift, lshift.
+
+* >>{History of NYAOS 3000}{more}

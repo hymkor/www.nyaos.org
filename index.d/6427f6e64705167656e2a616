@@ -1,0 +1,44 @@
+'''NYAOS とは、Windows,OS/2等で稼働する、
+UNIXライクな日本語拡張コマンドラインシェルです。'''
+
+* UNIX ライクな行編集・ヒストリ機能 
+* GNU General Public License にて公開
+* 内蔵カラー ls
+* エイリアス・関数
+* キー割当てのカスタマイズ
+* ファイル名補完
+
+!!! >>{NYAOS 3000}{NYAOS 3.x}
+
+<<{luacat.PNG}
+NYAOS 3.0 - Nihongo Yet Another Open Shell 3.x は、
+NYAOS 2.x シリーズの後継バージョンです。
+
+* '''Lua により、シェルの隅々までカスタマイズ可能'''
+* 一部(バッチファイル・copy などの内蔵コマンド呼び出し)を除き、CMD.EXE 無しで動作
+* DOS や Windows9x 系列はサポート対象外となりました。
+* 3つに分かれていた名称(NYACUS/NYAOS 2/NYADOS)を「NYAOS」に統一しました。
+** NYACUS ⇒ NYAOS for Windows と読み替えてください。
+
+!!! NYAOS 2.x ( >>{NYAOS 2.x (E)}{英語} | >>{NYAOS 2.x (J)}{日本語} )
+
+NYAOS 2.x は、3-OS：DOS,Windows,OS/2 をサポートするために一から再開発されました。
+
+* <<{greencat.PNG} NYADOS - DOS,Windows9x用
+* <<{redcat.PNG} NYACUS - Windows2000,XP用
+* <<{nyaos2ico.PNG} NYAOS/2 - OS/2用
+
+当バージョンでは #!(シェバング)や REXX のサポートは無くなりました。
+
+!!! NYAOS 1.x ( http://nyaos.org/VA009797/warp/nyaos-eng.html{英語} | http://nyaos.org/VA009797/warp/nyaos.html{日本語})
+
+NYAOS は OS/2 の環境に優しい UNIX ライクなシェルとして産まれました。
+
+* IBM OS/2 2.11以降対応 (ただし、テストは Warp 4 のみ)
+* tcsh/wordstar ライクで、カスタマイズ可能な行編集機能
+* UNIX のように「#!」を認識。バッチファイルや REXX も実行可能
+* コマンドラインから、ワークプレースシェル上でファイルやディレクトリを OPEN することが可能
+* DBCS 対応
+* 要emx 0.9d 以降
+
+<<{nyaosbnr.png}

@@ -1,0 +1,287 @@
+* 3.2.0_8 (2013/01/20)
+** Bugfix: Japanese letters are not printed correctly on builtin-ls 
+   and prompt in some Windows-7 environments.
+* 3.2.0_7 (2012/06/23)
+**Fix: freeze at executing the script with ```nyaos -f FILENAME```
+      and FILENAME's code is ```lua_e "print(io.read())"```
+      (on Windows only)
+* 3.2.0_6 (2012/06/03)
+** Fix problem: could not execute a batchfile when both the 
+      batchfile's name and argument are enclosed in double-quotation.
+      (for example: "foo.bat" "arg1")
+* 3.2.0_5 (2012/03/11)
+** Enabled replacing by "suffix" command against result replaced by "alias" command.
+** On `set foo= ; set foo+"a""b"', $foo was `ab'. But now it is `a"b'.
+** Aginst not existing command FOO, two error message ware printed as:
+      `FOO: No such file or directory' and `FOO: Bad file descriptor'.
+      Now, the latter are removed.
+** Remove warning: unused variables.
+* 3.2.0_4 (2012/02/26)
+** Now, support Lua 5.1.5
+**  Fix: `make lua' on Windows did not work correct.
+* 3.2.0_3 (2012/02/11)
+** same change as 3.3.0_2 to 3.3.0_3
+* 3.2.0_2 (2012/02/02)
+** same change as 3.3.0_1 to 3.3.0_2
+* 3.2.0_1 (2012/01/07)
+** fix: nyaos.eval does not work correctly when arguments' command output over 32767 chars.
+*3.2.0_0 (2011/09/11)
+** fix: History numbers are not displayed.
+** defined on _nya the command 'cmdsource',
+      which loads the batch-file setting environment variables.
+** append English usage on _nya.
+
+----
+
+*3.1.8_0 (2011/07/18)
+** OS/2: emx.dll is not required any longer.
+*3.1.7_2 (2011/07/02)
+** fix: An element of ``nyaos.history`` always returned "<NnObject>".
+** fix: ``nyaos.history:add`` did not work.
+* 3.1.7_1 (2011/06/14)
+** fix: Records in history were not sorted which have no timestamp.
+** fix: Same records in history were saved as one record.
+** fix: It took time to save history which has a lot of records.
+** (import code from wantora)
+* 3.1.7_0 (2011/06/05)
+** record time-stamp in history which can print 'history' command.
+** On saving history, merge it with already saved history order
+   by time-stamp.
+* 3.1.6_1 (2011/05/24)
+** Don't crash on using backquote when \ is not allowed
+      to write on Windows.
+* 3.1.6_0 (2011/04/30)
+** On Windows' Escape-sequence emulation, support
+*** ESC[39m (set foreground-color to default one)
+*** ESC[49m (set background-color to default one)
+    ((br))(import code from @mattn_jp)
+** Dynamic prompt by Lua function
+* 3.1.5_0 (2011/01/30)
+** support syntax: %VAR/FROM/TO% , ${VAR/FROM/TO}
+* 3.1.4_1 (2010/12/20)
+** Fix: 'nyaos -E "print(nyaos.version,nyaos.argv[0])"' does not 
+      report correct value. (lua_e worked correctly)
+* 3.1.4_0 (2010/12/11)
+** Fix: could not complete deep directory like jp/co/example with
+      repeating typing TAB-key
+** When return-value of nyaos.keyhook.xxxx is table, interpret elements
+      of them.
+** include version-string in 'nyaos.version' and nyaos-executable-path
+      in 'nyaos.argv[0]'
+* 3.1.3_0 (2010/11/24)
+** Keys besides ->,<-,^B,^F are able to terminate incremental-search-mode.
+** nyaos.write(io.write with escape-sequence emulation)
+** meta charactor $Wn in %PROMPT%
+* 3.1.2_0 (2010/11/11)
+** treat nyaos.keyhook not only as a function but also 
+   as a table with functions.
+** call nyaos.filter3.xxxx order by name.
+* 3.1.1_0 (2010/10/26)
+** make hook as nyaos.filter3.xxxxx (hook for CreateProcess/DosExecPgm)
+** display filename before the error message: 'No Such file or directory'
+* 3.1.0_1 (2010/09/11)
+** same between 3.0.0_0 and _1
+* 3.1.0_0 (2010/08/02)
+** Not only Japanese, All DBCS Supported.
+** When stdout is a tty, ``ls`` behaves as ``ls -1``.
+** add option ``-x`` to ``ls``.
+** add Lua function: ``nyaos.splitknj()`` which splits string a single/double-byte charactor into table's element.
+
+----
+
+* 3.0.0_1 (2010/09/11)
+** Fix: did not replace the environment variable which begins `$' and
+           includes `_'.
+** Fix: treated no suffiexed filename as executable.
+** Fix: searched executables written with relative path though %PATH%.
+** force static-link libstdc++ With the latest MinGW(20100831).
+** remove warnings on the latest MinGW(20100831) on history.cpp,keybound.cpp
+* 3.0.0_0 (2010/07/17)
+** Change command-name search-path from((br))((v nbsp))
+            alias -> built-in command -> nyaos.command2(Lua)((br))((v nbsp))
+            -> nyaos.command(Lua) -> function -> external command((br))
+      to((br))((v nbsp))
+            alias -> function -> nyaos.command2(Lua)((br))((v nbsp))
+            -> nyaos.command(Lua) -> built-in command -> external command
+** able to remove function with 'FUNCTIONNAME{}'
+** add nyaos.stat , nyaos.filefind , nyaos.mkdir and nyaos.rmdir
+
+* 2.99_0 (2010/07/03)
+** When call nyaos.filter.XXXXX, do order by XXXXX
+** `nyaos.pid' means NYAOS.EXE's process id
+** On suffix command, can use macros like alias
+** When -f's parameter ends with .lua or .luac, expect it Lua script.
+** `nyaos.goodbye' can be table who has functions.
+** Incremental search with Ctrl-R (patch by Mr.craftware)
+** '''Application name is changed from OSes Shell to Open Shell.'''
+** add: nyaos.functions as Lua table(readonly)
+
+* 2.98_0 (2010/06/11)
+** option +glob: wildcard expansion
+** can execute to batch-files without suffix(.CMD/.BAT)
+** command name completion supports commands defined with nyaos.command/commans2
+** echo `dir | sort` work correctly.
+** The max charactors quoted with ` is extended from 1024 to 8192.
+** command '{}' lists functions.
+** The third argument of nyaos.complete includes all the commandline-string and cursor postion.
+** append English document(nyaos_en.txt).
+** rename Japanese document nyaos.txt to nyaos_ja.txt
+** Bugfix: & and > quoted ` are working as redirect and etc.
+** Bugfix: Spaces and LF in "`..`" were reduced to one space.
+* 2.97_0 (2010/05/25)
+** treat nyaos.filter and nyaos.filter2 as table which has functions.
+   (for compatible, nyaos.filter(2) is allowed to be a function.)
+** called from VimShell, option term_cursor_on set ''.
+* 2.96_0 (2010/05/22)
+** add: nyaos.command2 , nyaos.filter2 , nyaos.dirstack
+** del: nyaos.exe's option "-a"
+** lua_e command support redirect of standard-input
+** can refer errorlevel with %errorlevel%
+** can use pairs/ipairs function for nyaos.alias/suffix/option/history/dirstack
+** nyaos's option "-D" reports compiled date and timing of loading _nya
+** Bugfix: nyaos aborts when error occurs at executing 'source'.
+* 2.95_0 (2010.05.07)
+** Intefaces of functions defined on nyaos.command(LUA) are same as built-in commands.
+*** Output Rereirect and pipelines work.
+*** Arguments are split with whitespaces and remove double-quotes.
+** It is able to stop continued lines with Ctrl-C (Unclosed double-quote , typing foreach on tty )
+** fix problem: could not call foo.exe when the file foo with no suffix on the same directory.
+* 2.94_0 (2010.04.29)
+** new Lua function:
+*** nyaos.default_complete
+*** nyaos.eval
+** change return value of nyaos.complete from several strings to one table including strings.
+** set option-variable %nyatype% NYAOS3K
+** 'source' treats files whose siffuxes are .lua or .luac as Lua-scriptes.
+  (accepting compiled binary)
+** cut message '%0 reading... done' in _nya. But, with -D option, NYAOS.EXE says filenames loading.
+** can catch CTRL_SPACE (on Windows)
+** [BugFix] Empty line was inserted into history file with option savehist.
+** [BugFix] Stop pipelined build-in command, output would not stop. (OS/2)
+
+* 2.93_0 (2010.04.24)
+** Lua hook for completion.
+** HIDDEN,SYSTEM-files' color take priority to DIRECTORY's one.
+** Print <PROCESS-ID> with '&'
+** New Icon for Windows (Windows)
+** IME-toggle-key Ctrl-\ (Windows)    
+** not use temporary files on pipelines from built-in commands' output.
+** [FIX] Color differed between 'ls' and 'ls -l'
+** [FIX] Command execution was continued when it's redirect failed.
+
+* 2.92_1 (2010.04.14)
+** Fix the problem Lua-object ``nyaos.filter`` was not called.
+* 2.92_0 (2010.04.11)
+** ls without -a does not show files which has hidden attributes or begins '_'.
+** can change escape sequece for clearing screen with `option term_clear'.
+** can change escape sequence for  blinking cursor with `term_cursor_on'.
+** `option +XXX` set value not `(set)' but empty-string.
+** Since we can not chdir directory , for example http%3a%2f%2fftp.iij.ad.jp%2fpub%2fcygwin%2f, %0..%9 are not replaced empty string
+not on function or source.
+** %% are replaced to %.
+** [FIX]
+*** The command `ls' print over 4GB file'size 0-bytes
+*** Both %0 and %1 is command-name in the command `source'.
+* 2.91_1 (2010.03.30)
+** Fix: restore console-mode changed for getch() when execute commands.
+   ((br))(This bug makes Lua and Python's interactive mode hang-up)
+* 2.91_0 (2010.03.28)
+** add ls a new option --color which force output colored.
+** interpret Lua code when script-file begins '--' loaded 'source' and _nya
+** remove command: list,xptest,echoerr
+** rename command: print -> echo
+** (Windows) add nyaos's option -t which disable to control console directly and use ANSI escape sequence.
+* 2.90_1 (2010.03.19)
+** (OS/2)
+*** Fix: could not execute PM applications.
+* 2.90_0 (2010.03.16)
+** update Japanese document(nyaos.txt)
+** assign version number as '2.90_0'
+** improve packaging script(mkpack.cmd)
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* <<{nyaos3k-20100315.zip} & <<{nyaos3k-os2-20100315.zip}
+** Support OS/2 Warp!
+** When a build-in command's output to pipeline, emulate pipeline with a temporary file to keep stable.
+* <<{nyaos3k-20100313.zip}
+** (no change on Windows version)
+** OS/2 supported. But, does not release OS/2 executable binary because some problems.
+* <<{nyaos3k-20100310.zip}
+** [BugFix] fix problem that Ctrl-C cound not stop ls and lua_e.
+   (except for pipeline being overflow)
+* <<{nyaos3k-20100307.zip}
+** [BugFix] fix problem that hang-up 
+     after executing "''COMMAND'' ``| more.com``".
+** remove build-in command ``sub``/``endsub``
+** Include improved getch-code support both '澤' and arrow-keys.(Thank to lukewarm)
+* <<{nyaos3k-20100306.zip}
+** [BugFix] ``'&'`` works same as bash.exe not as CMD.EXE's start commands.
+** [BugFix] fix problem that it could not call command whose name is enclused with '"' (ex. ``"C:\Program Files\foo\bar.exe"[Enter]``
+* <<{nyaos3k-20100301.zip}
+** NYAOS.EXE never calls CMD.EXE even if you set ``option -standalone``.
+*** remove option standalone.
+*** CMD.EXE's commands are called only via ``alias`` and/or ``suffix``.
+** ``lua_e``'s output can redirect into file or pipeline.
+* <<{nyaos3k-20100220.zip}
+** _nya:
+*** set alias del and echo to call cmd.exe
+*** save history by Lua
+** Lua extention:
+*** nyaos.getkey()
+*** nyaos.goodbye() - code called at logoff
+*** nyaos.rcfname - set source filename ($0)
+** etc
+*** change compiler Cygwin gcc with -mno-cygwin to MinGW32 native gcc
+*** add forgotten source nua.h to repository
+*** does not call upx at building because it is not included in MinGW32.
+* <<{nyaos3k-20091220.zip}
+** Stop read _nyados, _nyacus
+** Read all _nya on the directory which NYAOS.EXE exists , %HOME% or %USERPROFILE% and current directory.
+** Fix: option -r did not work.
+** Add function on the table nyaos: access, exec, chdir, dir, bitand, bitor, bitxor, rshift, lshift
+** Add option: -E and -F
+** Add object: nyaos.history
+** _nya:
+*** add 'suffix py python ...'
+*** remove some alias which was set for only Hayama.
+* <<{nyaos3k-20091129.zip}
+** fix: when nyaos.keyhook unset, hanged up.
+* <<{nyaos3k-20091128.zip}
+** add nyaos.keyhook and nyaos.key
+* <<{nyaos3k-20091125.zip}
+** fix: cursor-keys did not work. But, be not able to type "澤" again.
+*** Why cursor-keys' codes and "澤" begin same the 1byte: 0xE0 ?
+* <<{nyaos3k-20091121.zip}
+** able to run on teraterm. (but can not edit line like with emacs-key-binding) Thanks to lpproj.
+** fix: process down when execute 'lua_e "nyaos=nil"'
+** fix: could not type "澤"
+** fix: could not use xscript-mode
+* <<{nyaos3k-20091120.zip}
+** fix: not hang-up standard-in redirected (thanks to lpproj's patch)
+** fix: version-number '20091115' to '20091120'
+** fix: not include icon-resource
+* <<{nyaos3k-20091119.zip}
+** ls: support over 80columns
+** rename ``nyaos.properties`` to ``nyaos.option``
+** _nya:
+*** append ``option +standalone``
+*** append ``alias copy cmd /c copy``
+* <<{nyaos3k-20091116.zip}
+** based on NYAOS 2.30_0
+** add command '''``lua_e``'''.
+** remove option '''``multilinequote``'''.

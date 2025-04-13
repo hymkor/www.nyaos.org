@@ -1,0 +1,18 @@
+!!! Download
+
+* Windows binary
+** ((latest_attach nyaos-3.3.*-win.zip))
+* OS/2 binary
+** ((latest_attach nyaos-3.3.*-os2.zip))
+* Source files
+** ((latest_attach nyaos-3.3.*-src.zip))
+* Public Repository: 
+** ``nyaos.exe`` -> https://bitbucket.org/zetamatta/nyaos3000
+** ``_nya.d/*`` -> https://bitbucket.org/zetamatta/_nya.d
+* Required Lua
+** <<{lua-5.2.1.tar.gz}
+** <<{lua-5.2.1-dbcspatch-20130221.diff.gz}
+   ((br))(a patch for Lua 5.2.1 to support DBCS on string literals)
+
+https://bitbucket.org/zetamatta/nyaos3000/downloads{Back number}
+(Bitbucket)

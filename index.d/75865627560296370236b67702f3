@@ -1,0 +1,160 @@
+理屈抜きにして、最新版が欲しい人は http://ckw-mod.github.io/ へ行きましょう
+
+----
+
+((outline))
+
+本家がなくなって、各所で、いろんな人が修正版を公開されています。
+だいたい下の方が新しいです。
+
+<<{ckw-20130311.png}
+((br))(<<{ckw-20130311.odg}{LibreOffice の元ファイル})
+
+<<時系列まとめ>>
+
+* (2005.10.27) 0.8.10 by 「Kazuo Ishii」氏(archive.org の中のみ残る本家)
+** ck - terminal emulator
+*** http://web.archive.org/web/20070513105112/http://www.geocities.jp/cygwin_ck/{archive.org によるミラー}(ホームページと ckw のソースのみ発掘可能)
+*** http://sohda.net/cygwin/dist/mirror/www.geocities.jp/meir/{sohda氏によるミラー}(ckw に関するページはないがオリジナルバイナリが発掘可能)
+*** http://www6.atpages.jp/~appsouko/souko/doc/ckw/ckw.html{kskdozer氏によるマニュアルのミラー}(マニュアルが発掘可能)
+** Cache: <<{ckw-0.8.10-bin.zip} , <<{ckw-0.8.10-src.zip}
+
+* (2007.11.15) 0.8.10-mod by 「hideden」氏
+** http://d.hatena.ne.jp/hideden/20071115/1195229532{cmd.exeを超便利にする ckw 0.8.10 を改造した。 - Perlとかmemoとか日記とか。}
+*** 設定ファイル名を ckw.txt → ckw.cfg に変更
+*** MakefileからCygwin依存のシェルスクリプトをbatに書き換え、VCでコンパイルできるようにした
+*** カレントディレクトリを指定する-cd,--chdir を追加
+*** 実行シェルを設定ファイルに記述できるようにした
+*** タイトルを指定するオプション-tl,--titleを追加
+*** フォントサイズを標準のDOS窓より小さく設定すると、最大化や窓リサイズで一定以上の大きさになるとウィンドウサイズがおかしくなってしまう不具合を修正
+** Parent: 0.8.10 (Original)
+** Cache: <<{ckw-0.8.10-mod-bin.zip} , <<{ckw-0.8.10-mod-src.zip}
+
+* (2007.11.23) 0.8.10-mod2 by「hidden」氏
+** http://d.hatena.ne.jp/hideden/20071123/1195822428{ckw改造版の修正版とuberboxの修正版と簡易電卓っぽいの。 - Perlとかmemoとか日記とか。}
+*** -cd "%1" でドライブルートを指定すると起動しないバグを修正
+*** bbLeanでwindowをshadeすると最小化してしまうバグを修正
+** Parent: ckw-0.8.10-mod ,
+    http://nocd5.blog59.fc2.com/blog-entry-195.html{「nocd5」氏修正案}
+** Cache: <<{ckw-0.8.10-mod2-bin.zip} , <<{ckw-0.8.10-mod2-src.zip}
+
+* (2008.10.15) '''0.8.10-mod-mod''' by 「囚人」氏
+** http://blogs.wankuma.com/shuujin/archive/2008/10/15/158825.aspx{ckw 0.8.10 改造版を更に改造した（修正しただけ）}
+*** コンソール隠しに失敗する問題を修正
+** Parent: ckw-0.8.10-mod
+** Cache: <<{ckw-0.8.10-mod-mod-bin.zip} , <<{ckw-0.8.10-mod-mod-src.zip}
+
+* (2008.12.24) 0.8.10-mod2-wantora by 「wantora」氏
+** http://d.hatena.ne.jp/wantora/20081224{
+メモ@wantora - id:hideden:20071123:1195822428にid:s-yata:20080823:1219474577の修正を加えてVCでビルドしたやつを置いとく。}
+** Parent: 0.8.10-mod2 , http://d.hatena.ne.jp/s-yata/20080823/1219474577{「やた」氏修正案}
+
+* (2009.10.24) http://www.freia.jp/taka/blog/678/{ckw のテキスト貼り付けをPythonのInteractiveShellでも正しく動作するように改造してみた — 清水川Web}
+** 改行コードペーストの処理を改善
+*** Parent: ckw-0.8.10-mod-mod
+
+* (2009.11.17) '''0.8.10-mod3''' by 「bleis-tift」氏
+** http://d.hatena.ne.jp/bleis-tift/20091117/1258448920{改造版 ckw の修正版のバイナリとソースを公開 - 予定は未定Blog版}
+*** 速いマシンでコンソールが二重化してしまう問題に対応
+** Parent: 0.8.10-mod2 , http://d.hatena.ne.jp/s-yata/20080823/1219474577{「やた」氏修正案} , http://twitter.com/you_and_i/status/5812581561{「@you_and_i」氏による修正案}
+** Cache: <<{ckw-0.8.10-mod3-bin.zip} , <<{ckw-0.8.10-mod3-src.zip}}
+
+* (2010.02.02) http://d.hatena.ne.jp/mclh46/20100202/1265109706{ckwという改造コマンドプロンプト - ながとダイアリー}
+** 背景画像を表示される機能を修復。ベースは不明。by id:mclh46氏
+
+* (2010.04.04) http://d.hatena.ne.jp/pipehead/20100401/1270111376{ckw の小さいアイコンをちゃんとタイトルバーやタスクバーに表示させる - anonymous苦労者}
+** by id:pipehead氏
+** Parent: 0.8.10-mod2
+
+* (2010.04.20) http://nocd5.blog59.fc2.com/blog-entry-401.html{nocd5@blog ckw modの話}
+* (2010.04.21) http://nocd5.blog59.fc2.com/blog-entry-402.html{nocd5@blog ckw modの話 (訂正)}
+* (2010.04.26) http://nocd5.blog59.fc2.com/blog-entry-403.html{nocd5@blog ネタがないのでｗ}
+** Parent: ckw-mod_git-deflis-3
+* (2010.05.23) http://nocd5.blog59.fc2.com/blog-entry-410.html{nocd5@blog ckw mod関係}
+** %USERPROFILE%/_ckw 対応
+** Parent: ckw-mod_git-deflis-4 , 0.8.10-mod4-20100517
+
+* (2010.05.28) http://d.hatena.ne.jp/satosystems/20100528/1274990359{ckw 改造版のパッチ - satosystemsの日記}
+** Parent: 0.8.10-mod3
+
+* (2010.07.15) http://www.vesta.dti.ne.jp/~tsato/software.html#ckw{Ru^3 Honpo -Software etc-}
+** Parent: 0.9.0-mod-d1
+** 64bit版Windows対応
+
+<<<継続的プロジェクト>>>
+
+* http://sourceforge.jp/projects/ckw/{Windowsのcmd.exeを便利にするコンソールツールckw} (ckw.sourceforge.jp)
+
+* http://sites.google.com/site/craftware/ckw{craftware: ckw 改造版}
+** Parent: 0.8.10-mod3
+** (2010.05.01) 0.8.10-mod4-20100426
+** (2010.05.17) 0.8.10-mod4-20100517
+
+* http://github.com/deflis/ckw-mod{deflis's ckw-mod at master - GitHub}
+** Parent: 0.8.10-mod-mod + 清水川氏パッチ
+** (2010.03.19) 0.8.10-mod+git-deflis
+** (2010.03.21) 0.8.10-mod+git-deflis-3 (0.8.10-mod3をマージ)
+** (2010.05.08) 0.8.10-mod+git-deflis-4 (nocd5氏の4/21パッチをマージ)
+** (2010.06.19) 0.9.0-mod-d1 (craftware氏のmod4,nocd5氏の5/23パッチをマージ)
+** (2010.07.11) http://d.hatena.ne.jp/deflis/20100711#1278825602{駄文日記}にて、
+    ckw 開発の今後の意向などを表明
+** (2010.07.15) http://twitter.com/deflis/status/18565473995{twitter}にて
+    『ckwのSourceFogrge.jpのプロジェクトに誘われた形になった。 [S10e]』
+** (2010.07.15) http://twitter.com/deflis/status/18592820741{twitter}にて
+    『書いてみるもんだなー。ckwの修正パッチが来た！！ [研究室]』
+** (2010.07.18) 0.9.0-mod-d2 (rururu氏の64bitパッチ取り込み)
+** (2010.07.19) http://twitter.com/deflis/status/18907786431{ckw.sourceforge.jp と合流(gitレポジトリを sourceforge 側へコピー)}
+
+* http://nocd5.blog59.fc2.com/blog-entry-447.html{nocd5@blog ckw mod -- 俺流改造}(2010.11.10)
+** ファイラのショートカットにckw -cd "%1"とか登録して、ファイルが選択した状態でも、そのディレクトリをカレントとしてckwを起動できるようにするパッチ
+
+* http://nocd5.blog59.fc2.com/blog-entry-497.html{nocd5@blog ckw mod パッチ}(2012.01.30)
+** ウインドウのクローズボタンを押した時、ターミナル内で実行中のアプリケーションが
+   終了処理を行えるように、TerminateProcess ではなく、
+   PostMessage でプロセスを終了させるようにするパッチ
+   (具体的には、これを適用しないと NYAOS はヒストリの保存ができない)
+
+<<結局、最新はどれ？>>
+
+==2010年7月18日(日)時点では、http://github.com/deflis/ckw-mod/downloads{Downloads for deflis's ckw-mod - GitHub}にある ckw-mod-0.9.0-d2.zip が最新の ckw です。==
+
+==2013年2月26日(火)時点で、同ページは「There aren't any uploads for this repository.」となっており、
+ダウンロードできるバイナリファイルがなくなっていました。==
+
+2013年3月4日(月)時点で、http://ckw-mod.github.com/ というホームページも用意され、
+そこからダウンロードできるようになっています。
+(参考：https://github.com/ckw-mod/ckw-mod/issues/10{issues/10})
+
+2013年4月14日(日)時点で、http://ckw-mod.github.io/ に URL が変わった模様です。
+
+<<トラブルシューティング>>
+
+<<<貴様は今まで使ってきた ckw のバージョンを覚えているのか？>>>
+
+ウインドウ左上のアイコンから About を選べば、「ビルドした日時」を確認できます。
+こちらと上のリリース日付を照合すればよいでしょう。
+
+バージョン部分はオリジナル以外の 0.8 はどれも「0.8.10-mod」となっていますので、あてになりません。
+
+<<{which_ckw_1.png} → <<{which_ckw_2.png}
+
+<<<くっ日本語が入力できないッ!!!>>>
+
+環境によっては、ショートカット経由での起動の際、日本語が入力できないという現象が発生するようです(==今のところ、どのバージョンでも発生=={0.9.0-d2 時点で発生しないことを確認})。ショートカット中のコマンドラインを
+
+8<
+    cmd.exe /c start (ディレクトリ)\ckw.exe
+>8
+
+とすれば、一応、回避できます。
+あとは「実行時の大きさ」を「最小化」としておくといいでしょう。
+(一瞬だけ CMD.EXE のウインドウが開くので)
+
+!!! その他
+
+!! SourceForge.jpのgnupackプロジェクト
+
+ckw のアイコンも配布されているようです。
+
+* http://sourceforge.jp/projects/gnupack/releases/
+* http://gnupack.sourceforge.jp/docs/current/UsersGuide_description.html

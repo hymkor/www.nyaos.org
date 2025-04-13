@@ -1,0 +1,29 @@
+ありがとうございます。
+
+* <<{craftware-20100628.patch}{nyaos の i-search}
+** craftware さんより、2010/06/28 にご提供(メール内のインラインソース)
+** 上記パッチファイルは葉山の必要最小限の追加コード混入
+** ChangeSet「df79d2a14209」にて NYAOS 3000 に取り込み
+* http://d.hatena.ne.jp/lukewarm/20091212#p2{Win32 コンソール(3)：とりあえず IME のオン／オフとかやってみる}(savaさんとこ)
+** sava さんより 2009/12/12 にご提供
+** Ctrl-\ など、任意のキーで IME の On/Off をできるようにするのに利用
+** ChangeSet「f2a525669dd0」にて NYAOS 3000 に取り込み
+* <<{nyaos3k-2.92_1-os2pipefix.zip}
+** sava さんより 2010/04/19 にご提供( http://bauxite.sakura.ne.jp/wiki/mypad.cgi?p=tmp%2Ffiles{bauxite:チラシの裏 - tmp/files} )
+** OS2EMX: パイプで連結したコマンドが実行できなかった場合（たとえば "foo | more"など）、nyaos が正常終了できなくなる問題の修正
+** ChangeSet「c8a2ba9629a3」にて NYAOS 3000 に取り込み
+* (link)http://d.hatena.ne.jp/lukewarm/20091204#p2{「嫌なら見るな！嫌なら見るな！」的なアレ - DOS | OS/2 memo}
+** sava さんより 2009/12/04 ご提供(ページ内のインラインソース)
+** ChangeSet「9b9898edfc31」にて NYAOS 3000 に取り込み
+** ChangeSet「5e6a019687fc」にて NYAOS 2.31 に取り込み
+* <<{nyaos222a-mingw-20090221.zip}
+** sava さんより 2009/02/21 にご提供( http://bauxite.sakura.ne.jp/wiki/mypad.cgi?p=tmp%2Ffiles{bauxite:チラシの裏 - tmp/files} )
+** MinGW32 コンパイラ対応
+** ChangeSet「96a1d83c9b1c」にて、NYAOS 2.22a に取り込み
+* <<{nyacus222a_mod.zip}
+** hideden さんより 2007/11/15 にご提供 (http://d.hatena.ne.jp/hideden/20071125/1196015990{ckw + NYACUS2.22aでサイズ変更時に自動でwidth設定 - Perlとかmemoとか日記とか。})
+** ckw の画面サイズ変更への連動処理の追加
+** ChangeSet「e8198d7cfb01」にて、NYAOS 2.22a に取り込み
+* xscript パッチ
+** UK-taniyama 氏より 2002/09/08 ご提供
+** NYAOS 2.11 に取り込み

@@ -1,0 +1,173 @@
+!!! 以下、2.97 へ反映済み
+
+!! VimShell で、余計な <ESC>[>5l が出る問題への対応
+
+<<{_nya}
+
+!!! 以下、2.96 へ反映済み
+
+!! 20100424
+
+* <<{nyaos3k-20100424-win.zip}
+* <<{nyaos3k-20100424-src.zip}
+
+! 変更点
+
+* nyaos.complete のインターフェイスの変更
+* 組み込み関数 nyaos.default_complete の用意
+
+! 例1
+
+8<
+lua_e "
+    function nyaos.command.comp(argv)
+        local L=nyaos.default_complete(argv,1)
+        for i=1,#L do
+            print( string.format('(%d) %-20s %-20s',i,L[i][2],L[i][1]) )
+        end
+    end
+"
+>8
+
+これで comp というコマンドが定義される。
+
+8<
+[C:hayama]
+$ comp ~/.
+(1) .bashrc              ~/.bashrc
+(2) .freemind/           ~/.freemind/
+(3) .gvimrc              ~/.gvimrc
+(4) .gvimrc.orig         ~/.gvimrc.orig
+(5) .hg/                 ~/.hg/
+(6) .hgignore            ~/.hgignore
+(7) .hgrc                ~/.hgrc
+(8) .rnd                 ~/.rnd
+(9) .skk-jisyo           ~/.skk-jisyo
+(10) .skk-jisyo.BAK       ~/.skk-jisyo.BAK
+(11) .skk_vim_jisyo~      ~/.skk_vim_jisyo~
+(12) .ssh/                ~/.ssh/
+(13) .vim                 ~/.vim
+(14) .vimrc               ~/.vimrc
+(15) .vimrc.orig          ~/.vimrc.orig
+(16) .vimshell_hist       ~/.vimshell_hist
+(17) .w3m/                ~/.w3m/
+[C:hayama]
+$
+>8
+
+default_complete の第一引数は補完前のファイル名、
+第二引数は補完位置。1以上だと通常のファイル名補完、
+0 だとコマンド名補完となる。
+
+! 例2.
+
+8<
+lua_e "
+    function nyaos.command.list(argv)
+        local L=nyaos.default_complete(argv,1)
+        for i=1,#L do
+            print( L[i][2])
+        end
+    end
+"
+>8
+
+8<
+[C:hayama]
+$ list ~/.
+.bashrc
+.freemind/
+.gvimrc
+.gvimrc.orig
+.hg/
+.hgignore
+.hgrc
+.rnd
+.skk-jisyo
+.skk-jisyo.BAK
+.skk_vim_jisyo~
+.ssh/
+.vim
+.vimrc
+.vimrc.orig
+.vimshell_hist
+.w3m/
+>8
+
+! nyaos.complete の仕様変更
+
+ユーザ定義関数であるところの、nyaos.complete の呼び出し元は、
+通常の補完候補を足さないようにした。
+つまり、nyaos.complete の中から nyaos.default_complete を呼び出して、
+候補の追加・削除ができるようになった/しなくてはいけなくなった。
+
+!!! 以下、2.93 へ反映済み
+
+!! 20100417
+
+* <<{nyaos3k-20100417-win.zip}
+* <<{nyaos3k-20100417-src.zip}
+
+! 変更点
+
+* Windows では spawnvp の使用をやめて、直接 CreateProcess 関数を呼び出すようにした。
+* & で非同期実行する時にプロセスIDを表示するようにした。
+* カラー ls での色の付け方を HIDDEN,SYSTEM を DIRECTORY より優先するようにした
+
+! 不具合修正
+
+* color-ls のデフォルト配色が、-l の有無で違ってしまう問題を修正
+* リダイレクトでオープンできなかった時に、エラー終了しない問題を修正
+
+!! 20100416
+
+* <<{nyaos3k-20100416-win.zip}
+* <<{nyaos3k-20100416-src.zip}
+
+!! 変更点
+
+* nyaos.complete に Lua の補完関数を登録できるようにした。
+
+!!! 以下、2.92 に反映済み
+
+!! 20100406
+
+* <<{nyaos3k-20100406-win.zip}
+* <<{nyaos3k-20100406-src.zip}
+
+! 変更点
+
+* ls -a の新仕様をドキュメントに記載
+* 2.92 での変更履歴をドキュメントに追記
+* アンダスコアで始まるファイル、HIDDEN属性がついているファイルは
+   -a オプションがついている時しか ls で表示しないようにした。
+* _nya: 環境変数 VIMSHELL が '1' の時に VimShell 向けのカラーを設定するようにした。
+
+
+!! 20100401
+
+* <<{nyaos3k-20100401-win.zip}
+* <<{nyaos3k-20100401-src.zip}
+
+! 変更点
+
+* 画面クリアの制御コードを option term_clear ～ で設定できるようにした。
+* カーソルオンの制御コードを option term_cursor_on で設定できるようにした。
+* option +XXX で設定される文字列を「(set)」ではなく、空文字列とした。
+* (ドキュメント) option keep_bottom_line の記述を削除(機能がいつの間にか無い)
+* (ドキュメント) option multilinequote の記述を削除(既に廃止している)
+* (ドキュメント) option debug の記述を削除(意味がなくなっている)
+
+! 不具合修正
+
+* goto が変数宣言を跨いでいたために発生した、emx/gcc でのコンパイルエラーの解消
+
+! ソースのリファイン
+
+* NyadosShell.out/err の廃止(conOut/conErr を差し替えるようにした)
+* WriterClone のシンプル化
+* トレースのためのデバッグ句の一部削除
+
+! 不具合修正
+
+* ドキュメントのスペルミスを修正 (NYAOUS -> NYAOS:1行)

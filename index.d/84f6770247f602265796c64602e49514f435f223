@@ -1,0 +1,56 @@
+When OS/2 Warp install, enable to install LINK386.EXE !!!
+
+Download these files and extract on C:\
+
+*  http://hobbes.nmsu.edu/h-browse.php?dir=/pub/os2/util/archiver
+** unz552x2.exe
+** zcr23x2.zip 
+* http://hobbes.nmsu.edu/h-browse.php?dir=/pub/os2/dev/emx/v0.9d
+** INSTALL.DOC
+** README.DOC
+** emxdev1.zip
+** emxdev2.zip
+** emxfix04.zip
+** emxrt.zip
+** gnudev1.zip
+** gnudev2.zip
+** gppdev1.zip
+** gppdev2.zip 
+* http://hobbes.nmsu.edu/h-browse.php?dir=/pub/os2/dev/util
+** make-3.81-r2-bin-static.zip (copy it from c:/usr/local/bin to c:/emx/bin )
+
+Edit C:\CONFIG.SYS
+
+* append LIBPATH=... ``c:\emx\dll;``
+* append PATH=... ``c:\emx\bin;``
+* append C:\CONFIG.SYS these lines:
+
+8<
+set C_INCLUDE_PATH=c:/emx/include
+set LIBRARY_PATH=c:/emx/lib
+set CPLUS_INCLUDE_PATH=c:/emx/include/cpp;c:/emx/include
+set PROTODIR=c:/emx/include/cpp/gen
+set OBJC_INCLUDE_PATH=c:/emx/include
+set GCCLOAD=5
+set TERM=mono
+set TERMCAP=c:/emx/etc/termcap.dat
+set INFOPATH=c:/emx/info
+>8
+
+Reboot your OS/2.
+
+Convert emx libraries for LINK386.EXE 
+
+8<
+cd \emx\lib
+omflibs
+>8
+
+extract nya-YYYYMMDD.zip and build!
+
+8<
+unzip nya-YYYYMMDD.zip
+make -f Makefile.emx
+>8
+
+Happy your OS/2 life!

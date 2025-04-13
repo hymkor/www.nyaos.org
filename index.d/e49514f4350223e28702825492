@@ -1,0 +1,54 @@
+NYAOS (NYACUS,NYADOS,NYAOS-II) is the enhanced commandline shell for Windows,DOS,OS/2.
+
+* Line editor like tcsh. On NYACUS,NYAOS-II , able to read/write clipboard.
+* History like VZ-editor or tcsh-like.
+* Support OS : DOS,Windows95,98,Me,NT,2000,XP,OS/2 Warp
+* Built-in color ls((br))
+   <<{color-ls.png}{colored-buildin-ls}
+* Alias and Function
+* key-binding custom
+* Even if longer string than screen width, command-line scrolls.
+* Backquote like tcsh
+* Filename completion
+**  Support VFAT (NYADOS)
+**  Completion and listing like bash
+**  Auto correct filename's case
+**  When filename has a white-space, append "
+**  Auto corrent slash and backslash
+**  Support another completion: one bye one completion.((br))
+    <<{nyaos_completion.gif}
+* Free Software. GNU General Public License
+
+!!! Download
+
+((include DOWNLOAD_2xx))
+
+!!! Platform
+
+||| name    | support OS | compiler to build
+|| NYADOS   | Windows95,98,Me,DOS | Digital Mars C++ 8.42
+|| NYACUS   | Windows95,98,Me,NT,2000,XP | MinGW32/gcc
+|| NYAOS-II | OS/2 Warp | emx 0.9d/gcc
+
+* The documentations in the archive files have not been translated to English, yet. They are under creation. Now 60%
+* To start , type EXE-Filename. With Ctrl-Z, terminate.
+* NYADOS,NYACUS,NYAOS-II are free softwares. You can copy them with GNU General Public License.
+
+!!! What's new
+
+* 2010.04.03
+** NYAOS 2.31_2 Released. [[DOWNLOAD_2xx]]
+*** fix (c) 2001-2009 to 2001-2010 on Japanase document.
+*** change support address to author's nifty address.
+*** include icons for DOS and OS/2 foggotten in the previous packages.
+* 2010.03.31
+** NYAOS 2.31_1 Released. [[DOWNLOAD_2xx]]
+*** Fix: on Windows, restore console-mode changed for getch() when execute commands. (This bug makes Lua and Python's interactive mode hang-up) 
+* 2010.03.30
+** NYAOS 2.31_0 Released. [[DOWNLOAD_2xx]]
+** Backport from NYAOS-3000
+*** Fix: could not input some japanese letter(called SAWA and so on)
+*** Support: access from teraterm.
+* 2009.11.01
+** NYAOS 2.30_0 Released. [[DOWNLOAD_2xx]]
+** include [[changes in TEST-VERSIONs|TEST VERSION between 2.22a to 2.30]]

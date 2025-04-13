@@ -1,0 +1,46 @@
+'''"NYAOS" is the tcsh-like enhanced commandline shell for Windows and OS/2 !'''
+
+* Free Software. GNU General Public License
+* Line Editor and history like UNIX shells
+* Built-in color ls
+  ((br))<<{color-ls.png}
+* Alias and function
+* key-binding custom
+* Filename completion
+
+!!! >>{NYAOS 3000}{NYAOS 3.x}
+
+<<{luacat.PNG} '''NYAOS 3.x - Nihongo Yet Another Open Shell 3.x'''
+ is the next generation of NYAOS 2.x Series.
+
+* With http://www.lua.org{Lua}, users can customize anywhere on the shell.
+* No longer, NYAOS does not need CMD.EXE.
+* DOS and Windows9x are not supported on this version.
+
+!!! NYAOS 2.x
+    ( >>{NYAOS 2.x (E)}{English} | >>{NYAOS 2.x (J)}{Japanese})
+
+NYAOS 2.x is developed from scratch
+to support three Operating System (DOS / Windows / OS/2 ).
+
+* <<{greencat.PNG} 'NYADOS' is for DOS and Windows9x
+* <<{redcat.PNG} 'NYACUS' is for Windows2000,XP
+* <<{nyaos2ico.PNG} 'NYAOS/2' is for OS/2.
+
+But, '#!' and 'REXX' are not supported.
+
+!!! NYAOS 1.x 
+    ( http://nyaos.org/VA009797/warp/nyaos-eng.html{English}
+    | http://nyaos.org/VA009797/warp/nyaos.html{Japanese} )
+
+NYAOS is born to provide the commandline like UNIX and fit for OS/2 environment.
+
+* IBM OS/2 2.11 or later.(tested only on Warp 4)
+* Command-line editor like tcsh/wordstar. It can be customized. 
+* Understand '#!' like unix. Of course, BATCH and REXX can be executed. 
+* Open the file or directory on Workplace Shell 
+* Colored ls which can prints comments and longname in EA.
+* Supports DBCS. 
+* emx runtime libraries 0.9d or later
+
+<<{nyaosbnr.png}

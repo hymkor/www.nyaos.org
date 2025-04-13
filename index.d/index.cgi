@@ -1,0 +1,11 @@
+#sitename	NYAOS.ORG
+#pluginmgr__96e636c6574656e207c6	1
+#CSS	CSS
+#lonely	1
+#crypt	x8nAoKFudT4KQ
+#target	_blank
+#canonical_url	http://www.nyaos.org/index.cgi
+#pluginmgr__3616e6f6e6963616c6e207c6	1
+#pluginmgr__f6e6c616e676e207c6	1
+#FrontPage	FrontPage
+#pluginmgr__c61647563747f5164747163686e207c6	1

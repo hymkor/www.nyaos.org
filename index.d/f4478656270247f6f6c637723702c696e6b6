@@ -1,0 +1,20 @@
+* http://www.piedey.co.jp/softs/ntuxtl.html{NT版UNIX-like tools}
+** cp や mv など。元々DOSで動いていた新出尚之先生の UNIX-like tools を WindowsNT系へ porting したもの
+** basename.exe expand.exe ls.exe sort.exe unexpand.execat.exe false.exe
+   makedir.exe split.exe uniq.execdate.exe fecho.exe mv.exe tail.exe
+   uudecode.exechmod.exe findf.exe od.exe tee.exe uuencode.execmp.exe fold.exe
+   pr.exe test.exe wc.execp.exe foreach.exe pwd.exe tman.exe what.exediff.exe
+   head.exe removedir.exe touch.exe xeq.exeegrep.exe joinf.exe rm.exe tr.exe
+
+* http://github.com/deflis/ckw-mod{deflis's ckw-mod at master - GitHub}
+** ターミナルソフトウェア ckw の最新版。「[[Where is ckw ?]]」も参照のこと
+** GNU General Public License
+
+* http://sourceforge.net/projects/console/{Console}
+  (日本語IME対応パッチ:http://wiki.pythonpath.jp/moin/ConsoleIme )
+** タブ式ターミナル
+
+* http://www.kaoriya.net/{KaoriYa.net}
+** vim.org等で配布されるオリジナルに、日本語を扱う上で便利な設定やスクリプトが追加した vim 7.2 を配布されています。
+
+* http://nonn-et-twk.net/twk/windows-less-utf8{Windows版less UTF-8対応版バイナリー配布 | twk @ ふらっと}

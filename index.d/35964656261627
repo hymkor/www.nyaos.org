@@ -1,0 +1,32 @@
+!!! Index
+
+* [[FrontPage]] (>>{FrontPage.en}{en}/>>{FrontPage.ja}{ja})
+
+* '''>>{NYAOS 3000}{NYAOS 3.x}''' (>>{NYAOS 3000.en}{en}/>>{NYAOS 3000.ja}{ja})
+** http://bitbucket.org/zetamatta/nyaos3000{Bitbucket}
+** [[Nyaosforge]]
+
+* NYAOS 2.x
+** >>{NYAOS 2.x (E)}{English}(>>{manual.en}{Manual})
+** >>{NYAOS 2.x (J)}{Japanese}
+** >>{DOWNLOAD_2xx}{Download}
+** http://bitbucket.org/zetamatta/nyaos2000{Bitbucket}
+** [[known bug]]
+* NYAOS 1.x
+** http://nyaos.org/VA009797/warp/nyaos-eng.html{English}
+** http://nyaos.org/VA009797/warp/nyaos.html{Japanese}
+* Misc.
+** [[Where is ckw ?]]
+** [[Other tools's link]]
+** [Programmer's diary(J)|http://nyaos.org/d/]
+** NYAOS Rumers
+*** [Part-1|http://togetter.com/li/52156]
+*** [Part-2|http://togetter.com/li/63985]
+
+!!! How to contact to the developper
+
+* E-Mail: iyahaya(at)nifty(dot)com
+
+!!! Recent Updates
+
+((ls -t -r))
